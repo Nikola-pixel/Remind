@@ -64,7 +64,7 @@ def main():
     app.job_queue.run_daily(morning_reminder, time=time(hour=8))
     app.job_queue.run_daily(evening_reminder, time=time(hour=20))
     print("Bot is running...")
-    app.run(debug=True)
+    app.run_polling()
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug= True)
+    main()
