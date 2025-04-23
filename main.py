@@ -28,6 +28,9 @@ async def evening_reminder(context): pass
 
 async def admin_panel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.message.from_user.id
+    if user_name = update.message.from_user.first_name
+    welcome_message = f"Привет, {user_name}! Я твой бот для мотивации. Чем могу помочь?"
+    await update.message.reply_text(welcome_message)
     if user_id not in ADMIN_IDS:
         await update.message.reply_text("Нет доступа.")
         return
@@ -53,6 +56,7 @@ def main():
     app.add_handler(CommandHandler("mark", mark))
     app.add_handler(CommandHandler("mychallenge", mychallenge))
     app.add_handler(CommandHandler("remindme", register_reminders))
+    app.add_handler(CommandHandler("start", start))
     challenge_conv = ConversationHandler(
         entry_points=[CommandHandler("challenge", challenge)],
         states={
